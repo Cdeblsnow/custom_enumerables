@@ -1,5 +1,15 @@
 module Enumerable
-  # Your code goes here
+  def my_any?
+
+    self.each do |element|
+        if yield(element) == true
+          return true
+        else 
+          return false 
+        end
+      end
+    
+  end
 end
 
 # You will first have to define my_each
@@ -45,3 +55,5 @@ class Array
     end
   end
 end
+
+
