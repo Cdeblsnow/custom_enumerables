@@ -2,6 +2,7 @@ module Enumerable
 
   def my_each_with_index
     i = 0
+
     self.each do |array|
       yield(array, i) if block_given?
       i += 1  
@@ -74,6 +75,15 @@ module Enumerable
       return count if length >= self.length  
     end
   end
+
+  def my_map 
+    hold = []
+
+    self.each do |element|
+      hold << yield(element) if block_given?
+    end
+    return hold
+  end
 end
 
 # You will first have to define my_each
@@ -84,14 +94,12 @@ class Array
   # Define my_each here
   def my_each
     hold = []
+
     self.each do |array|
       hold << array if yield(array)
-      
     end
     return self #after not finding anything and iterating all the array
   end
-
-  
 end
 
 
