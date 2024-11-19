@@ -50,14 +50,12 @@ module Enumerable
   end
 
   def my_none?
-    i = 1
     self.each do |element|
         if yield(element) == false
           return true
-        elsif i >= self.length
+        elsif yield(element) == true
           return false 
-        end
-      i += 1  
+        end 
       end
   end
 end
