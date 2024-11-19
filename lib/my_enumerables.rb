@@ -1,14 +1,14 @@
 module Enumerable
   def my_any?
-
+    i = 1
     self.each do |element|
         if yield(element) == true
           return true
-        else 
+        elsif i >= self.length
           return false 
         end
+      i += 1  
       end
-    
   end
 end
 
