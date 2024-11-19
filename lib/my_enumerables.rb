@@ -84,6 +84,15 @@ module Enumerable
     end
     return hold
   end
+
+  def my_inject(args)
+    hold = args
+    
+    self.each do |element|
+       hold = yield(hold, element)
+    end
+    return hold
+  end
 end
 
 # You will first have to define my_each
